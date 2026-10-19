@@ -1,0 +1,53 @@
+
+:host {
+    display: block;
+    width: 100%;
+    
+}
+
+
+lightning-card {
+    display: block;
+    width: 100%;
+    width: 850px;
+    margin: 0 auto;
+}
+
+
+.slds-var-p-horizontal_medium {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px 22px 24px;
+}
+
+
+lightning-datatable {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    border: 10px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+
+.empty-message {
+    margin: 16px 0;
+    padding: 24px 16px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+    background: #f8fafc;
+    border: 10px dashed #cbd5e1;
+    border-radius: 10px;
+}
+
+
+.slds-text-color_error {
+    color: #b42318;
+    background: #fff1f0;
+    border: 10px solid #fecdca;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 12px;
+}

@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Memberships Expiring in 7 Days" icon-name="standard:date_time">
+        <div class="slds-var-p-horizontal_medium">
+            <lightning-input type="search" label="Search Member" placeholder="Enter member name..." onchange={handleSearch}></lightning-input>
+             <div class="slds-m-top_medium">
+
+                <template lwc:if={errorMessage}>
+                    <p class="slds-text-color_error">{errorMessage}</p>
+                </template>
+
+                <template lwc:if={hasRows}>
+                    <lightning-datatable  key-field="id" data={rows} columns={columns}  onrowaction={handleRowAction} hide-checkbox-column></lightning-datatable>
+                </template>
+
+                <template lwc:if={showEmpty}>
+                    <p class="empty-message">{emptyMessage}</p>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
