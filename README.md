@@ -61,7 +61,7 @@ It is a CRM app designed for a multi-branch gym where staff can manage members, 
 )
 
 ### ⚡ Screen Flow - New Member Onboarding
-![Onboarding Screen Flow](<img width="1920" height="1080" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/4dccdaf7-1bf6-4ac1-afec-c2f3e21673cf" />
+![Onboarding Screen Flow](<img width="1920" height="1080" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/e3e0ce71-2959-4f30-a432-70c4f9b6c9ea" />
 )
 
 
@@ -71,7 +71,8 @@ It is a CRM app designed for a multi-branch gym where staff can manage members, 
 
 
 ### ⏰ Scheduled Flow - Expiry Reminder
-![Scheduled Expiry Flow]("C:\Users\A\OneDrive\Pictures\Screenshots\Screenshot (79).png")
+![Scheduled Expiry Flow](<img width="1920" height="1080" alt="Screenshot (79)" src="https://github.com/user-attachments/assets/0eb098ec-a1b6-4197-807f-0a864018f418" />
+)
 
 ### 🔐 Role Hierarchy
 ![Role Hierarchy](<img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/7a11b8d4-6524-4826-9464-99b5f4174f95" />
