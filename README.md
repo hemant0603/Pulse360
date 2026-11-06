@@ -1,10 +1,10 @@
 
-<img width="1634" height="822" alt="Screenshot 2026-11-06 202826" src="https://github.com/user-attachments/assets/9d4b0e9d-a596-4e2d-bb8d-bfeceae41955" />
-<img width="1920" height="1080" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/6ae4733b-5b75-441a-a312-0515e1a4f59c" />
-<img width="1920" height="1080" alt="Screenshot (79)" src="https://github.com/user-attachments/assets/1c6333e7-b57f-472b-b0b0-43d4a5684e23" />
-<img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b92a9b8e-2cbc-44cf-a67c-fed115b8b2b2" />
-<img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/c852ca6b-92e0-460e-8159-368c9e406ca4" />
-<img width="1920" height="1080" alt="Screenshot (84)" src="https://github.com/user-attachments/assets/874a6662-edc4-4438-b510-16b708876f02" />
+
+
+
+
+
+
 
 # **🏋️‍♂️ Pulse360 - Gym Management System (Salesforce CRM)**
 
@@ -61,30 +61,24 @@ It is a CRM app designed for a multi-branch gym where staff can manage members, 
 ## 📸 Screenshots
 
 ### 💻 LWC - Expiring Memberships Tracker (Home Page)
-![Expiring Memberships LWC](<img width="1633" height="822" alt="image" src="https://github.com/user-attachments/assets/b567aaf3-37a3-4224-89ce-94016210a5a2" />
-)
+<img width="1634" height="822" alt="Screenshot 2026-11-06 202826" src="https://github.com/user-attachments/assets/9d4b0e9d-a596-4e2d-bb8d-bfeceae41955" />
 
 ### 📊 Pulse360 Executive Dashboard
-![Executive Dashboard](<img width="1920" height="1080" alt="Screenshot (84)" src="https://github.com/user-attachments/assets/9b057b68-19ea-48a0-a139-2f2781943cad" />
-)
+<img width="1920" height="1080" alt="Screenshot (84)" src="https://github.com/user-attachments/assets/874a6662-edc4-4438-b510-16b708876f02" />
 
 ### ⚡ Screen Flow - New Member Onboarding
-![Onboarding Screen Flow](<img width="1920" height="1080" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/e3e0ce71-2959-4f30-a432-70c4f9b6c9ea" />
-)
+<img width="1920" height="1080" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/6ae4733b-5b75-441a-a312-0515e1a4f59c" />
 
 
 ### 📩 Record-Triggered Flow - Member Welcome Email
-![Member Welcome Email Flow](<img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b5f0d6f5-49f0-4bf5-b82e-30becfb346cb" />
-)
+<img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b92a9b8e-2cbc-44cf-a67c-fed115b8b2b2" />
 
 
 ### ⏰ Scheduled Flow - Expiry Reminder
-![Scheduled Expiry Flow](<img width="1920" height="1080" alt="Screenshot (79)" src="https://github.com/user-attachments/assets/0eb098ec-a1b6-4197-807f-0a864018f418" />
-)
+<img width="1920" height="1080" alt="Screenshot (79)" src="https://github.com/user-attachments/assets/1c6333e7-b57f-472b-b0b0-43d4a5684e23" />
 
 ### 🔐 Role Hierarchy
-![Role Hierarchy](<img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/7a11b8d4-6524-4826-9464-99b5f4174f95" />
-)
+<img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/c852ca6b-92e0-460e-8159-368c9e406ca4" />
 
 ---
 
