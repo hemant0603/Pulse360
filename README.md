@@ -1,58 +1,85 @@
-# Salesforce DX Project
+<img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b92a9b8e-2cbc-44cf-a67c-fed115b8b2b2" /># 🏋️‍♂️ Pulse360 - Gym Management System (Salesforce CRM)
 
-Salesforce DX is a development approach that brings source-driven development, team collaboration, and continuous integration to the Salesforce Platform. Instead of working directly in an org through a web browser, you work with metadata as source files in a local DX project, track changes in version control, and deploy through automated processes.
+Hi! 👋 I built **Pulse360** as a hands-on Salesforce project to learn and apply core Admin and Developer concepts on a real-world business problem. 
 
-This project template gets you started with the tools and structure you need to build Salesforce applications using source control, scratch orgs, and the Salesforce CLI.
+It is a CRM app designed for a multi-branch gym where staff can manage members, trainers, daily workouts, payments, and memberships all in one place.
 
-## Prerequisites
+---
 
-Before you start, make sure you have:
+## 🛠️ Tech Stack Used
+* **Salesforce Admin:** Custom Objects, Relationships, Roll-Up Summary Fields, Validation Rules, Reports & Dashboards
+* **Automation:** Salesforce Flows (Record-Triggered, Scheduled, and Screen Flow)
+* **Salesforce Dev:** Apex Triggers, Handler Classes, Test Classes, SOQL, Lightning Web Components (LWC), JavaScript
+* **Security:** Roles, Custom Profiles, OWD, Sharing Rules, Field-Level Security (FLS)
 
-- **Salesforce CLI** - Download from [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli). See [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) for details.
-- **VS Code with Salesforce Extension Pack** - See [Installation Instructions](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/install.html) for details. Includes the Agentforce Vibes extension.
-- **A development org** - Sign up for a free Developer Edition org [here](https://developer.salesforce.com/signup).
-- **Dev Hub enabled** (optional, required to create scratch orgs) - You can enable Dev Hub in your development org under Setup > Dev Hub.  See [Provide Developers Access to Salesforce DX Tools](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_setup_dx_tools.htm).
+---
 
-## Project Structure
+## 🚀 What I Built in This Project
 
-Your DX project follows this structure:
+### 1. 🗄️ Database & Data Validation
+* Created **9 Custom Objects** to store gym data: `Gym__c`, `Membership_Plan__c`, `Member__c`, `Trainer__c`, `Equipment__c`, `Training_Session__c`, `Payment__c`, `Enrollment__c`, and `Session_Booking__c`.
+* **Relationships:** 
+  * Linked `Member__c` to `Gym__c` using a **Lookup** relationship so member records aren't accidentally deleted if a gym branch record is removed.
+  * Used **Master-Detail** for `Payment__c`, `Trainer__c`, and `Equipment__c`.
+  * Created **Junction Objects** (`Enrollment__c` and `Session_Booking__c`) to connect multiple members with multiple plans and workout sessions.
+* **Roll-Up Summary Fields:** Automatically counts total gym equipment (`Total_Equipments__c`) and live bookings per session (`Current_Bookings__c`).
+* **4 Validation Rules:** Blocks invalid entries like members under 16 years old, negative payment amounts, wrong enrollment dates, or invalid phone numbers (must be 10 digits).
 
-- **`force-app/main/default/`** - Your metadata source files live in this default package directory. You can configure additional package directories in the `sfdx-project.json` file.
-- **`config/`** - Scratch org definitions and project settings
-- **`scripts/`** - Automation scripts for common tasks
-- **`sfdx-project.json`** - Project manifest that defines package directories, namespace, API version, and other project-level settings
+### 2. ⚡ Process Automation (3 Flows)
+* **Welcome Email (Record-Triggered Flow):** Automatically sends a welcome email whenever a new member joins the gym.
+* **Expiry Reminder (Scheduled Flow):** Runs every morning at 6:00 AM to check whose membership is expiring in 3 days and sends them a reminder email.
+* **New Member Onboarding (Screen Flow):** A simple step-by-step form for the front desk that creates the **Member**, **Enrollment**, and **Payment** records together on a single screen.
 
-See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm).
+### 3. 💻 Custom Coding (Apex & LWC)
+* **Session Capacity Trigger (`before insert` on `Session_Booking__c`):** Checks if a workout session is already full (`Current_Bookings__c >= Max_Capacity__c`) and shows an error message using `addError()` to stop overbooking.
+* **Payment Trigger (`after insert, after update` on `Payment__c`):** Whenever a payment status is marked as `Paid`, this trigger automatically updates the member's `Enrollment__c` status to `Active`.
+* **Clean Code & Testing:** Used separate **Trigger Handler classes** (`with sharing`), kept SOQL/DML outside of loops (bulkified), and wrote **Unit Test Classes** covering both positive and negative test cases with 100% pass rate.
+* **Expiring Memberships Tracker (LWC):** Built a custom component (`expiringMemberships`) for the Home Page so staff can quickly see memberships expiring in the next 7 days.
+  * Includes a live search bar to filter members by name without reloading the page.
+  * Dynamically shows how many days are left (`Expires today`, `3 Days left`, etc.).
+  * Clicking on a member's name opens their record page directly.
 
-## Get Started
+### 4. 🔐 User Access & Security
+* **Role Hierarchy:** Set up roles for `Gym Owner` ➔ `Gym Manager` ➔ `Trainer` & `Front Desk`.
+* **4 Custom Profiles:** Created separate profiles (`Gym_Admin`, `Gym_Manager`, `Trainer`, `Front_Desk`) so people only see what they need. For example, Trainers cannot see any `Payment__c` records, and Front Desk staff cannot delete records.
+* **OWD & Sharing Rules:** Kept `Member__c` as **Private** by default for privacy, and added a **Criteria-Based Sharing Rule** to share active member records among the branch staff.
+* **Field-Level Security (FLS):** Made the payment amount field Read-Only for Gym Managers so payment figures cannot be edited after creation.
 
-Ready to start developing? The [Get Started with Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_get_started_dx.htm) guide walks you through your first project, from creating a scratch org to creating a simple Apex class or LWC to deploying your code to a sandbox.
+### 5. 📊 Reports & Dashboard
+* Created **8 Custom Reports** and combined them into an **Executive Dashboard** to track Active Members, Revenue Collected, Pending Payments, Popular Plans, and Branch-wise performance.
 
-## Common Salesforce CLI Commands
+---
 
-Here are common CLI commands that you'll use the most:
+## 📸 Screenshots
 
-- `sf org login web`: Authorize an org
-- `sf org open`: Open your org in a browser
-- `sf org create scratch`: Create a scratch org
-- `sf project deploy start`: Deploy metadata to your org
-- `sf project retrieve start`: Retrieve metadata from your org
-- `sf template generate <artifact>`: Scaffold new components, such as Apex classes and triggers, LWC components, Lightning apps, and more
-- `sf apex <command>`: Run Apex tests, run anonymous Apex blocks, and view logs
-- `sf data <command>`: Work with test data
-- `sf alias <command>`: Manage org aliases
-- `sf config <command>`: Configure CLI settings
+### 💻 LWC - Expiring Memberships Tracker (Home Page)
+![Expiring Memberships LWC](<img width="1633" height="822" alt="image" src="https://github.com/user-attachments/assets/b567aaf3-37a3-4224-89ce-94016210a5a2" />
+)
 
-## Use Agentforce Vibes to Build Lightning Apps
+### 📊 Pulse360 Executive Dashboard
+![Executive Dashboard](<img width="1920" height="1080" alt="Screenshot (84)" src="https://github.com/user-attachments/assets/9b057b68-19ea-48a0-a139-2f2781943cad" />
+)
 
-Transform your ideas into custom Lightning apps that extend CRM workflows directly in Lightning Experience. Through natural conversations with Agentforce Vibes, implement custom objects and fields, complex business logic, and dynamic UI components. See [Build a Lightning App Using Agentforce Vibes](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/lexapp-overview.html).
+### ⚡ Screen Flow - New Member Onboarding
+![Onboarding Screen Flow](<img width="1920" height="1080" alt="Screenshot (80)" src="https://github.com/user-attachments/assets/4dccdaf7-1bf6-4ac1-afec-c2f3e21673cf" />
+)
 
-## Additional Resources
 
-- [Agentforce Vibes Developer Guide](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/einstein-overview.html)
-- [Salesforce CLI Installation Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/)
-- [Salesforce CLI Plugin Development Guide](https://developer.salesforce.com/docs/platform/salesforce-cli-plugin/guide/conceptual-overview.html)
-- [Salesforce VS Code Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
+### 📩 Record-Triggered Flow - Member Welcome Email
+![Member Welcome Email Flow](<img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b5f0d6f5-49f0-4bf5-b82e-30becfb346cb" />
+)
 
+
+### ⏰ Scheduled Flow - Expiry Reminder
+![Scheduled Expiry Flow]("C:\Users\A\OneDrive\Pictures\Screenshots\Screenshot (79).png")
+
+### 🔐 Role Hierarchy
+![Role Hierarchy](<img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/7a11b8d4-6524-4826-9464-99b5f4174f95" />
+)
+
+---
+
+## 🙋‍♂️ About Me
+**Hemant Kumar Atal**  
+
+📫 [LinkedIn](https://www.linkedin.com/in/hemant-kumar-atal/) | [Trailhead](https://www.salesforce.com/trailblazer/hemantkumaratal)| [Email](mailto:hemantkumaratal2020@gmail.com)
