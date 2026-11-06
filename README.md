@@ -5,7 +5,8 @@
 <img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b92a9b8e-2cbc-44cf-a67c-fed115b8b2b2" />
 <img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/c852ca6b-92e0-460e-8159-368c9e406ca4" />
 <img width="1920" height="1080" alt="Screenshot (84)" src="https://github.com/user-attachments/assets/874a6662-edc4-4438-b510-16b708876f02" />
-# 🏋️‍♂️ Pulse360 - Gym Management System (Salesforce CRM)
+
+# **🏋️‍♂️ Pulse360 - Gym Management System (Salesforce CRM)**
 
 Hi! 👋 I built **Pulse360** as a hands-on Salesforce project to learn and apply core Admin and Developer concepts on a real-world business problem. 
 
